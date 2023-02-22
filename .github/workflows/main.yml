@@ -1,0 +1,14 @@
+name: test
+on: [push, pull_request]
+jobs:
+  build:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Docker testx
+      uses: docker/setup-testx-action@v2
+    - name: test
+      uses: docker/test-push-action@v3
+      with:
+        push: false
